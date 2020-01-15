@@ -1,8 +1,8 @@
-try:
+#try:
   # %tensorflow_version only exists in Colab.
-  %tensorflow_version 2.x
-except Exception:
-  pass
+ # %tensorflow_version 2.x
+#except Exception:
+ # pass
 
 #!pip install pyyaml h5py  # Required to save models in HDF5 format
 from __future__ import absolute_import, division, print_function, unicode_literals
@@ -21,7 +21,7 @@ model = create_model()
 #loss, acc = model.evaluate(test_images,  test_labels, verbose=2)
 #print("Untrained model, accuracy: {:5.2f}%".format(100*acc))
 
-checkpoint_path = '/Users/benja/Documents/Chespi/Software/Chessboard_Detection/weights.38-7.34.hdf5'
+checkpoint_path = 'weights.38-7.34.hdf5'
 DATA_PATH = '/Users/benja/Documents/Chespi/Software/Chessboard_Detection/DataSet'
 
 BATCH_SIZE = 32
