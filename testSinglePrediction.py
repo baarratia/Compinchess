@@ -4,7 +4,7 @@ checkpoint_path = 'weights.38-7.34.hdf5'
 IMG_PATH = '1B1b2KQ-1q1R1k2-kRRrP1Bq-pPq1Np1r-2bnQqpK-2Rb2KN-4b1B1-1n2qpP1-.png'
 
 model = modelInit(checkpoint_path)
-y =  predictImg(model, IMG_PATH)
+y =  predictImgPATH(model, IMG_PATH)
 
 print(y)
 
