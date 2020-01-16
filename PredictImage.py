@@ -8,6 +8,7 @@ from PredictBoard import *
 def modelInit(checkpoint_path):
     model = create_model()
     model.load_weights(checkpoint_path)
+    print("Model okay")
     return model
 
 def predictImgPATH(model, IMG_PATH):
