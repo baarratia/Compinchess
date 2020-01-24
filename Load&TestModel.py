@@ -21,8 +21,9 @@ model = create_model()
 #loss, acc = model.evaluate(test_images,  test_labels, verbose=2)
 #print("Untrained model, accuracy: {:5.2f}%".format(100*acc))
 
-checkpoint_path = 'weights.38-7.34.hdf5'
-DATA_PATH = '/Users/benja/Documents/Chespi/Software/Chessboard_Detection/DataSet'
+#checkpoint_path = 'weights.38-7.34.hdf5'
+checkpoint_path ="model_brown_60.h5"
+DATA_PATH = '/Users/benja/Documents/Chespi/Chessboard_Detection/DataSet2'
 
 BATCH_SIZE = 32
 # Loads the weights
@@ -32,12 +33,12 @@ model
 
 
 
-labels = glob.glob("DataSet/*-.png")
+labels = glob.glob(DATA_PATH + "/*-.png")
 labels = list(map(lambda l: path.basename(l), labels))
 print("Number of labels " + str(len(labels)))
 labels_train, labels_val = train_test_split(labels)
 training_generator = DataGenerator(labels_train)
-validation_generator = DataGenerator(labels_train)
+validation_generator = DataGenerator(labels_val)
 
 
 test_X, test_y = validation_generator.__getitem__(0, DATA_PATH)
@@ -45,7 +46,7 @@ batch_y = model.predict(test_X)
 true_fens = y_to_fens(test_y, BATCH_SIZE)
 pred_fens = y_to_fens(batch_y, BATCH_SIZE)
 
-index_to_show = 1
+index_to_show = 2
 file_name = DATA_PATH + "/" + validation_generator.labels[index_to_show]
 print("3D Image")
 display(Image(filename=file_name, width=400))
