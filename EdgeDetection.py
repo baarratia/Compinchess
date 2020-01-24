@@ -1,7 +1,7 @@
 """
 Loads and displays a video.
 """
-
+'''
 # Importing OpenCV
 import cv2
 import numpy as np
@@ -28,9 +28,12 @@ while(cap.isOpened()):
     gray_filtered = cv2.bilateralFilter(gray, 7, 50, 50)
 
     # Applying the canny filter
-    edges = cv2.Canny(gray, 60, 120)
-    edges_filtered = cv2.Canny(gray_filtered, 60, 120)
-
+    edges = cv2.Canny(gray, 60, 120) #60, 120
+    edges_filtered = cv2.Canny(gray_filtered, 60, 200)
+    
+    #ret, thresh = cv2.threshold(gray, 127, 255, 0)
+    #im2, contours, hierachy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    
     # Stacking the images to print them together for comparison
     #images = np.hstack((gray, edges, edges_filtered))
 
@@ -50,3 +53,8 @@ cap.release()
 
 # Closes all the frames
 cv2.destroyAllWindows()
+'''
+
+import imutils
+from skimage import exposure
+
